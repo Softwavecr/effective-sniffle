@@ -1,14 +1,17 @@
-def caesar_cipher(s,kk):
-    print(kk)
+def caesar_cipher(s,k):
+    #x = -10 % 3    print('-10 % 3 = ',x)
+
+    print(k)
     print(s)
     
-    k = kk % 26
-    print(k)
+    k = k % 26
+    print('1k= ',k)
 
-    if k < 0:
-        k = k + 26
+# Python does true Modulo, hence no need for adjustment
+#    if k < 0: 
+#       k2 = k + 26
 
-    print(k)
+    print('2k= ',k)
     
     result = []
 

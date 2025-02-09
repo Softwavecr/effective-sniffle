@@ -1,14 +1,17 @@
-function caesarCipher(s, kk) {
-    console.log(kk); 
+function caesarCipher(s, k) {
+    //var x = -10 % 3;    console.log("-10 % 3 = "+x);
+
+    console.log(k); 
     console.log(s);    
     
-    var k = kk % 26;
-    console.log(k);
+    k = trueMod(k,26);
+    //k = k % 26;
+    console.log("1k= "+k);
 
-    if (k < 0) 
-        k = k + 26;
+    //if (k < 0) //js does reminder, not real modulo, therefore, it needs to be tweaked
+        //k = k + 26;
 
-    console.log(k);
+    //console.log("2k= "+k);
     
     let result = ""
 
@@ -31,6 +34,10 @@ function caesarCipher(s, kk) {
     return result;
 }
 
+//JavaScript and C# calculate the remainder. The result has the same sign as the dividend 
+function trueMod(adivisor,bdividend) { return ((adivisor % bdividend) + bdividend) % bdividend;}
+
+//function trueMod(a,b){  return ((a % b) + b) % b;}
 //console.log(caesarCipher("middle-Outza", 2));
 console.log(caesarCipher("middle-Outvwxyza", -56));
 
