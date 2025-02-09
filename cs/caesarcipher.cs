@@ -41,4 +41,4 @@
         return result;
     }
 //middle-Outza
-Console.WriteLine(caesarCipher("middle-Outvwxyza", -56));
+Console.WriteLine(CaesarCipher("middle-Outvwxyza", -56));
