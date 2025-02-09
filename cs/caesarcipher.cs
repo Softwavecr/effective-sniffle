@@ -1,4 +1,4 @@
-﻿static string caesarCipher(string s, int kk)    {
+﻿static string CaesarCipher(string s, int kk)    {
         Console.WriteLine(kk);
         Console.WriteLine(s);
 
