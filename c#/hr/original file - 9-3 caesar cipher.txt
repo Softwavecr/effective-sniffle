@@ -1,0 +1,66 @@
+// using System.CodeDom.Compiler;
+// using System.Collections.Generic;
+// using System.Collections;
+// using System.ComponentModel;
+// using System.Diagnostics.CodeAnalysis;
+// using System.Globalization;
+// using System.IO;
+// using System.Linq;
+// using System.Reflection;
+// using System.Runtime.Serialization;
+// using System.Text.RegularExpressions;
+// using System.Text;
+// using System;
+
+class Result
+{
+
+    /*
+     * Complete the 'caesarCipher' function below.
+     *
+     * The function is expected to return a STRING.
+     * The function accepts following parameters:
+     *  1. STRING s
+     *  2. INTEGER k
+     */
+
+    public static string caesarCipher(string s, int k)
+    {
+        char[] arr;
+        arr = s.ToCharArray(0, s.Length);//Console.WriteLine();
+        for(int i=0; i<arr.Count();i++)
+        {
+            int t = arr[i];
+            if( t + k > 26 && ((t>64 && t<91) ||(t>96 && t<123)) )
+            {
+                char c1 = (char)(t + k);
+                Console.WriteLine(t.ToString()+" -> "+c1);
+                arr[i] = c1;
+            }
+            
+            if(t + k < 27 &&  ((t>64 && t<91) ||(t>96 && t<123)) )
+            {
+                char c = (char)(t + k);
+                Console.WriteLine(t.ToString()+" >> "+c);
+                arr[i] = c;                
+            }            
+                
+        }        
+        string result = new string(arr);
+        return result;
+    }
+
+}
+
+class Solution
+{
+    public static void Main(string[] args)
+    {
+        string s = "middle-Outz";
+
+        int k = 2;
+
+        string result = Result.caesarCipher(s, k);
+        Console.WriteLine(result);
+    }
+}
