@@ -1,47 +1,34 @@
-﻿static string CaesarCipher(string s, int k)    
+﻿using System;using System.Text;
+static string CaesarCipher(string s, int k)    
 {
-    Console.WriteLine(k);    Console.WriteLine(s);
+    Console.WriteLine(k);    
+    Console.WriteLine(s);
 
-    k = TrueMod(k,26);    //k = k % 26;
-    Console.WriteLine("1k= "+ k);
+    k = TrueMod(k,26);
+    Console.WriteLine("k % 26 = "+ k);
 
-        //if(k<0)//c# does reminder, not real modulo, therefore, it needs to be tweaked
-            //k = k + 26;
+    StringBuilder arr = new StringBuilder();
 
-        //Console.WriteLine("2k= "+ k);
-
-    char[] arr;
-    arr = s.ToCharArray(0, s.Length);
-    //Console.WriteLine("arr: "+new string(arr));
-    for(int i=0; i<arr.Count();i++)
+    foreach (char c in s)
     {
-        int t = arr[i];
-        char c = (char)(t + k);
+        int code = (int)c;//        Console.WriteLine("c= "+ c);        Console.WriteLine("code = "+ code);
 
-        //if(t+k<65 || t+k>122 || (t+k>90 && t+k<97)) Console.WriteLine($"! i: {i}, char: {(char)t}, t: {t}, c: {c} - ");
-
-        if(t + k > 26 && ((t>64 && t<91) ||(t>96 && t<123)) )
+        if(code >= 65 && code <= 90)
         {
-            //Console.WriteLine("t+k > 26 ");
-            //Console.WriteLine(((char)t).ToString()+" "+t.ToString()+" -> "+c);
-            arr[i] = c;
+            int shiftedCode = ((code - 65 + k) % 26) + 65;//            Console.WriteLine("shiftedCode = "+ shiftedCode+" - "+(char)shiftedCode);
+            arr.Append((char)shiftedCode);
         }
-            
-        if(t + k < 27 &&  ((t>64 && t<91) ||(t>96 && t<123)) )
+        else if(code >= 97 && code <= 122)
         {
-            //Console.WriteLine("t+k < 27 ");
-            ////Console.WriteLine(t.ToString()+" >> "+c);
-            //Console.WriteLine(((char)t).ToString()+" "+t.ToString()+" -> "+c);
-            arr[i] = c;                
-        }                            
+            int shiftedCode = ((code - 97 + k) % 26) + 97;//            Console.WriteLine("shiftedCode = "+ shiftedCode+" - "+(char)shiftedCode);
+            arr.Append((char)shiftedCode);
+        }
+        else
+            arr.Append(c);
     }
-    string result = new string(arr);
-    Console.WriteLine(".");
-    return result;
+    return arr.ToString();
 }
 
-//JavaScript and C# calculate the remainder. The result has the same sign as the dividend 
-static int TrueMod(int adivisor, int bdividend) => ((adivisor % bdividend) + bdividend) % bdividend;
+static int TrueMod(int dividend, int divisor) => ((dividend % divisor) + divisor) % divisor;
 //middle-Outza
-Console.WriteLine(CaesarCipher("middle-Outvwxyza", -55));
-Console.WriteLine(".end.");
+Console.WriteLine(CaesarCipher("middle-Outza", -2));
