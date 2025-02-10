@@ -1,48 +1,52 @@
-/*static string Modulo(string s, int kk)    {
-        Console.WriteLine(kk);
-        Console.WriteLine(s);
+static void Modulo(int a, int b)
+{
+     int[] numbers = { a, b };
 
-        var k = kk % 26;
-        Console.WriteLine(k);
+    int remainder = a % b;
+    int trueModulo = TrueModulo(a,b);
+    bool correct = remainder == trueModulo;
 
-        if(k<0)
-            k = k + 26;
+    int largest = Math.Max(a, b);
 
-        Console.WriteLine(k);
-
-        char[] arr;
-        arr = s.ToCharArray(0, s.Length);
-        //Console.WriteLine("arr: "+new string(arr));
-        for(int i=0; i<arr.Count();i++)
+        int maxWidth = 0;
+        foreach (int number in numbers)
         {
-            int t = arr[i];
-            char c = (char)(t + k);
+            maxWidth = Math.Max(maxWidth, Math.Abs(number).ToString().Length);
+        }
 
-            if(t+k<65 || t+k>122 || (t+k>90 && t+k<97)) Console.Write($"! i: {i}, char: {(char)t}, t: {t}, c: {c} - ");
+    //string a = a.ToString();
+    //string apadded = a.ToString().PadLeft(maxWidth + (a < 0 ? 1 : 0), " "); // +1 for the minus sign if negative
+    
+    //string bpadded = b.ToString().PadLeft(maxWidth + (b < 0 ? 1 : 0), " "); // +1 for the minus sign if negative
 
-            if(t + k > 26 && ((t>64 && t<91) ||(t>96 && t<123)) )
-            {
-                Console.WriteLine("t+k > 26 ");
-                //Console.WriteLine(((char)t).ToString()+" "+t.ToString()+" -> "+c);
-                arr[i] = c;
-            }
-            
-            if(t + k < 27 &&  ((t>64 && t<91) ||(t>96 && t<123)) )
-            {
-                Console.WriteLine("t+k < 27 ");
-                ////Console.WriteLine(t.ToString()+" >> "+c);
-                //Console.WriteLine(((char)t).ToString()+" "+t.ToString()+" -> "+c);
-                arr[i] = c;                
-            }            
-                
-        }        
-        string result = new string(arr);
-        Console.WriteLine("");
-        return result;
-    }*/
-//middle-Outza
-//Console.WriteLine(Modulo("middle-Outvwxyza", -56));
-Console.WriteLine(10 % 3);   // Output: 1
-Console.WriteLine(-10 % 3);  // Output: -1
-Console.WriteLine(10 % -3);  // Output: 1
-Console.WriteLine(-10 % -3); // Output: -1
+    string paddedNumbera = string.Format("{0," + (maxWidth + (a < 0 ? 1 : 0)) + "}", a);
+    Console.WriteLine(paddedNumbera);
+    string paddedNumberb = string.Format("{0," + (maxWidth + (b < 0 ? 1 : 0)) + "}", b);
+    Console.WriteLine(paddedNumberb);
+
+    string ok = "Y";
+    string no = "N";
+
+    //if(a>-1) Console.Write(" ");
+
+    string output = $".{paddedNumbera} MOD {paddedNumberb}, Remainder= {remainder}, TrueModulo= {trueModulo}. {(correct ? ok : no)}";
+
+    Console.WriteLine(output);
+}
+
+static int TrueModulo(int adivisor, int bdividend) => ((adivisor % bdividend) + bdividend) % bdividend;
+
+// Console.WriteLine(10 % 3);   // Output: 1
+// Console.WriteLine(-10 % 3);  // Output: -1
+// Console.WriteLine(10 % -3);  // Output: 1
+// Console.WriteLine(-10 % -3); // Output: -1
+
+// Console.WriteLine(TrueMod(10,3));   // Output: 1
+// Console.WriteLine(TrueMod(-10,3));  // Output: 2
+// Console.WriteLine(TrueMod(10,-3));  // Output: -2
+// Console.WriteLine(TrueMod(-10,-3)); // Output: -1
+
+Modulo(10,3);
+Modulo(-10,3);
+Modulo(10,-3);
+Modulo(-10,-3);
