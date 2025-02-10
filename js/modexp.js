@@ -1,14 +1,13 @@
-function modulo(divisor, dividend) {
-    let remainder = divisor % dividend;
-    let trueModulo = trueMod(divisor, dividend);
+function modulo(dividend, divisor) {
+    let remainder = dividend % divisor;
+    let trueModulo = trueMod(dividend, divisor);
     let correct = remainder === trueModulo;
 
-    console.log(` ${divisor} MOD ${dividend} = ${correct ? remainder : trueModulo} (R = ${remainder}, T = ${trueModulo})`);
+    console.log(` ${dividend} MOD ${divisor} = ${correct ? remainder : trueModulo} (R = ${remainder}, T = ${trueModulo})`);
 }
 
-const trueMod = (divisor,dividend) => 
-    ((divisor % dividend) + dividend) % dividend;
-
+const trueMod = (dividend, divisor) => 
+    ((dividend % divisor) + divisor) % divisor;
 
 modulo(10, 3);
 modulo(-10, 3);

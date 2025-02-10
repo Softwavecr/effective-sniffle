@@ -1,15 +1,14 @@
-static void Modulo(int divisor, int dividend)
+static void Modulo(int dividend, int divisor)
 {
-    int remainder = divisor % dividend;
-    int trueModulo = TrueModulo(divisor,dividend);
+    int remainder = dividend % divisor;
+    int trueModulo = TrueModulo(dividend, divisor);
     bool correct = remainder == trueModulo;     
 
-    Console.WriteLine($" {divisor} MOD {dividend} = {(correct ? remainder : trueModulo)} (R = {remainder}, T = {trueModulo})");
-
+    Console.WriteLine($" {dividend} MOD {divisor} = {(correct ? remainder : trueModulo)} (R = {remainder}, T = {trueModulo})");
 }
 
-static int TrueModulo(int divisor, int dividend) => 
-    ((divisor % dividend) + dividend) % dividend;
+static int TrueModulo(int dividend, int divisor) => 
+    ((dividend % divisor) + divisor) % divisor;
 
 Modulo(10,3);
 Modulo(-10,3);
