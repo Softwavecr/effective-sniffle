@@ -1,14 +1,14 @@
-﻿using System;using System.Text;
+﻿using System;
+using System.Text;
 
 static string CaesarCipher(string s, int k)    
-{
-    Console.WriteLine(k);    
+{   
+    Console.WriteLine(k);        
     Console.WriteLine(s);
 
-    k = TrueMod(k,26);
-    Console.WriteLine("k % 26 = "+ k);
+    k = TrueMod(k,26);//    Console.WriteLine("k % 26 = "+ k);
 
-    StringBuilder arr = new StringBuilder();
+    StringBuilder result = new StringBuilder();
 
     foreach (char c in s)
     {
@@ -17,19 +17,20 @@ static string CaesarCipher(string s, int k)
         if(code >= 65 && code <= 90)
         {
             int shiftedCode = ((code - 65 + k) % 26) + 65;
-            arr.Append((char)shiftedCode);
+            result.Append((char)shiftedCode);
         }
         else if(code >= 97 && code <= 122)
         {
             int shiftedCode = ((code - 97 + k) % 26) + 97;
-            arr.Append((char)shiftedCode);
+            result.Append((char)shiftedCode);
         }
         else
-            arr.Append(c);
+            result.Append(c);
     }
-    return arr.ToString();
+    return result.ToString();
 }
 
 static int TrueMod(int dividend, int divisor) => ((dividend % divisor) + divisor) % divisor;
 
-Console.WriteLine(CaesarCipher("middle-Outza", -2));
+Console.WriteLine(CaesarCipher("middle-Outza", 2));
+Console.WriteLine(CaesarCipher("okffng-Qwvbc", -2));

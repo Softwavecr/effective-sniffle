@@ -1,12 +1,8 @@
-
-
 def caesar_cipher(s,k):
-
-    print(k)
+    print(k)    
     print(s)
     
-    k = k % 26
-    print('k % 26 = ',k)
+    k = k % 26 #   print('k % 26 = ',k)
     
     result = []
 
@@ -24,4 +20,5 @@ def caesar_cipher(s,k):
 
     return "".join(result)
 
-print(caesar_cipher('middle-Outza', -2))
+print(caesar_cipher('middle-Outza', 2))
+print(caesar_cipher('okffng-Qwvbc', -2))
