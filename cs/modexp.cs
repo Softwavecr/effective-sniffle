@@ -1,40 +1,40 @@
-static void Modulo(int a, int b)
+static void Modulo(int divisor, int dividend)
 {
-    int remainder = a % b;
-    int trueModulo = TrueModulo(a,b);
-        bool correct = remainder == trueModulo;
+    int remainder = divisor % dividend;
+    int trueModulo = TrueModulo(divisor,dividend);
+    bool correct = remainder == trueModulo;
 
-        string output = "";
+    string output = "";
 
-        if (a > -1) output += $" {a} MOD ";
-        else output += $"{a} MOD ";
+    if (divisor > -1) output += $" {divisor} MOD ";
+    else output += $"{divisor} MOD ";
         
-        if (b > -1) output += $" {b}, OK? {(correct ? "Y" : "N")}.";        
-        else output += $"{b}, OK? {(correct ? "Y" : "N")}.";
+    if (dividend > -1) output += $" {dividend}, OK? {(correct ? "Y" : "N")}.";        
+    else output += $"{dividend}, OK? {(correct ? "Y" : "N")}.";
         
-        if (remainder > -1) output += $" R= {remainder} ,";        
-        else output += $" R={remainder} ,";
+    if (remainder > -1) output += $" R= {remainder} ,";        
+    else output += $" R={remainder} ,";
 
-        if (trueModulo > -1) output += $" T= {trueModulo}";
-        else output += $" T={trueModulo}";        
+    if (trueModulo > -1) output += $" T= {trueModulo}";
+    else output += $" T={trueModulo}";        
 
-        Console.WriteLine(output);
+    Console.WriteLine(output);
+}
+
+static void Modulo1(int divisor, int dividend)
+{
+    int remainder = divisor % dividend;
+    int trueModulo = TrueModulo(divisor,dividend);
+    bool correct = remainder == trueModulo;     
+
+    Console.WriteLine($" {divisor} MOD {dividend}, OK? {(correct ? 'Y' : 'N')}. R= {remainder}, T= {trueModulo}.");
 
 }
 
-static int TrueModulo(int adivisor, int bdividend) => ((adivisor % bdividend) + bdividend) % bdividend;
+static int TrueModulo(int divisor, int dividend) => 
+    ((divisor % dividend) + dividend) % dividend;
 
-// Console.WriteLine(10 % 3);   // Output: 1
-// Console.WriteLine(-10 % 3);  // Output: -1
-// Console.WriteLine(10 % -3);  // Output: 1
-// Console.WriteLine(-10 % -3); // Output: -1
-
-// Console.WriteLine(TrueMod(10,3));   // Output: 1
-// Console.WriteLine(TrueMod(-10,3));  // Output: 2
-// Console.WriteLine(TrueMod(10,-3));  // Output: -2
-// Console.WriteLine(TrueMod(-10,-3)); // Output: -1
-
-Modulo(10,3);
-Modulo(-10,3);
-Modulo(10,-3);
-Modulo(-10,-3);
+Modulo(10,3);Modulo1(10,3);
+Modulo(-10,3);Modulo1(-10,3);
+Modulo(10,-3);Modulo1(10,-3);
+Modulo(-10,-3);Modulo1(-10,-3);
