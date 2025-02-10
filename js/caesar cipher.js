@@ -1,20 +1,20 @@
-function caesarCipher(s, k) {
-    console.log(k);     
-    console.log(s);    
+function caesarCipher(text, key) {
+    console.log(key);     
+    console.log(text);    
     
-    k = trueMod(k,26);//    console.log('k % 26 = ',k);
+    key = trueMod(key,26);//    console.log('k % 26 = ',k);
 
     let result = "";     
-    const charArray = Array.from(s);
+    const charArray = Array.from(text);
 
     charArray.forEach(char => {
         let code = char.charCodeAt(0);
 
         if (code >= 65 && code <= 90) {
-            let shiftedCode = ((code - 65 + k) % 26) + 65;
+            let shiftedCode = ((code - 65 + key) % 26) + 65;
             result += String.fromCharCode(shiftedCode);
         } else if (code >= 97 && code <= 122) {
-            let shiftedCode = ((code - 97 + k) % 26) + 97;
+            let shiftedCode = ((code - 97 + key) % 26) + 97;
             result += String.fromCharCode(shiftedCode);
         } else {
             result += char;

@@ -1,8 +1,8 @@
-def caesar_cipher(s,k):
-    print(k)    
-    print(s)
+def caesar_cipher(text, key):
+    print(key)    
+    print(text)
     
-    k = k % 26 #   print('k % 26 = ',k)
+    key = key % 26 #   print('k % 26 = ',k)
     
     result = []
 
@@ -10,10 +10,10 @@ def caesar_cipher(s,k):
         code = ord(char)
 
         if code >= 65 and code <= 90:
-            shiftedcode = ((code - 65 + k) % 26) + 65
+            shiftedcode = ((code - 65 + key) % 26) + 65
             result.append(chr(shiftedcode))
         elif code >= 97 and code <= 122:
-            shiftedcode = ((code - 97 + k) % 26) + 97
+            shiftedcode = ((code - 97 + key) % 26) + 97
             result.append(chr(shiftedcode))
         else:
             result.append(char)
