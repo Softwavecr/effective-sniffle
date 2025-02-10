@@ -24,5 +24,4 @@ def caesar_cipher(s,k):
 
     return "".join(result)
 
-#middle-Outza
 print(caesar_cipher('middle-Outza', -2))
