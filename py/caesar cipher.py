@@ -6,7 +6,7 @@ def caesar_cipher(text, key):
     
     result = []
 
-    for char in s:
+    for char in text:
         code = ord(char)
 
         if code >= 65 and code <= 90:
@@ -20,5 +20,7 @@ def caesar_cipher(text, key):
 
     return "".join(result)
 
-print(caesar_cipher('middle-Outza', 2))
-print(caesar_cipher('okffng-Qwvbc', -2))
+r1 = caesar_cipher('middle-Outza', 290)
+print(r1)
+r2 = caesar_cipher(r1, -290)
+print(r2)

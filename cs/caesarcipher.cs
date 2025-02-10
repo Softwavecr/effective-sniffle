@@ -32,5 +32,7 @@ static string CaesarCipher(string text, int key)
 
 static int TrueMod(int dividend, int divisor) => ((dividend % divisor) + divisor) % divisor;
 
-Console.WriteLine(CaesarCipher("middle-Outza", 2));
-Console.WriteLine(CaesarCipher("okffng-Qwvbc", -2));
+var r1 = CaesarCipher("middle-Outza", 290);
+Console.WriteLine(r1);
+var r2 = CaesarCipher(r1, -290);
+Console.WriteLine(r2);

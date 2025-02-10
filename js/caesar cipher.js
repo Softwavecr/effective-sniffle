@@ -25,6 +25,7 @@ function caesarCipher(text, key) {
 
 const trueMod = (dividend, divisor) => ((dividend % divisor) + divisor) % divisor;
 
-console.log(caesarCipher("middle-Outza", 2));
-console.log(caesarCipher("okffng-Qwvbc", -2));
-
+let r1 = caesarCipher("middle-Outza", 290)
+console.log(r1);
+let r2 = caesarCipher(r1, -290);
+console.log(r2);
