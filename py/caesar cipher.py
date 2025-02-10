@@ -1,4 +1,5 @@
 
+
 def caesar_cipher(s,k):
 
     print(k)
@@ -22,7 +23,6 @@ def caesar_cipher(s,k):
             result.append(char)
 
     return "".join(result)
-
 
 #middle-Outza
 print(caesar_cipher('middle-Outza', -2))
