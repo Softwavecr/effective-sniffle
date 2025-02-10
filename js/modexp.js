@@ -1,40 +1,42 @@
-// function modulo(s, kk) {
-//     console.log(kk); 
-//     console.log(s);    
-    
-//     var k = kk % 26;
-//     console.log(k);
+function modulo(a, b) {
+    let remainder = a % b;
+    let trueModulo = trueMod(a, b);
+    let correct = remainder === trueModulo;
 
-//     if (k < 0) 
-//         k = k + 26;
+    let output = "";
 
-//     console.log(k);
-    
-//     let result = ""
+    if (a > -1) {
+        output += ` ${a} MOD `;
+    } else {
+        output += `${a} MOD `;
+    }
 
-//     for (let i=0; i<s.length ;i++)
-//         {
-//             let char = s[i];
-//             let code = s.charCodeAt(i);
-            
-//             if(code >= 65 && code <= 90)
-//             {
-//                 let shiftedCode = ((code - 65 + k) % 26) + 65;
-//                 result += String.fromCharCode(shiftedCode);
-//             } else if (code >= 97 && code <= 122) { 
-//                 let shiftedCode = ((code - 97 + k) % 26) + 97;
-//                 result += String.fromCharCode(shiftedCode);
-//             } else { 
-//                 result += char;
-//             }                          
-//         }
-//     return result;
-// }
+    if (b > -1) {
+        output += ` ${b}, OK? ${correct ? "Y" : "N"}.`;
+    } else {
+        output += `${b}, OK? ${correct ? "Y" : "N"}.`;
+    }
 
-//console.log(caesarCipher("middle-Outza", 2));
-//console.log(modulo("middle-Outvwxyza", -56));
+    if (remainder > -1) {
+        output += ` R= ${remainder} ,`;
+    } else {
+        output += ` R=${remainder} ,`;
+    }
 
-console.log(10 % 3);  // 1
-console.log(-10 % 3); // 2
-console.log(10 % -3); // -2
-console.log(-10 % -3); // -1
+    if (trueModulo > -1) {
+        output += ` T= ${trueModulo}`;
+    } else {
+        output += ` T=${trueModulo}`;
+    }
+
+    console.log(output);
+}
+
+function trueMod(adivisor,bdividend) {
+    return ((adivisor % bdividend) + bdividend) % bdividend;
+}
+
+modulo(10, 3);
+modulo(-10, 3);
+modulo(10, -3);
+modulo(-10, -3);

@@ -1,37 +1,25 @@
 static void Modulo(int a, int b)
 {
-     int[] numbers = { a, b };
-
     int remainder = a % b;
     int trueModulo = TrueModulo(a,b);
-    bool correct = remainder == trueModulo;
+        bool correct = remainder == trueModulo;
 
-    int largest = Math.Max(a, b);
+        string output = "";
 
-        int maxWidth = 0;
-        foreach (int number in numbers)
-        {
-            maxWidth = Math.Max(maxWidth, Math.Abs(number).ToString().Length);
-        }
+        if (a > -1) output += $" {a} MOD ";
+        else output += $"{a} MOD ";
+        
+        if (b > -1) output += $" {b}, OK? {(correct ? "Y" : "N")}.";        
+        else output += $"{b}, OK? {(correct ? "Y" : "N")}.";
+        
+        if (remainder > -1) output += $" R= {remainder} ,";        
+        else output += $" R={remainder} ,";
 
-    //string a = a.ToString();
-    //string apadded = a.ToString().PadLeft(maxWidth + (a < 0 ? 1 : 0), " "); // +1 for the minus sign if negative
-    
-    //string bpadded = b.ToString().PadLeft(maxWidth + (b < 0 ? 1 : 0), " "); // +1 for the minus sign if negative
+        if (trueModulo > -1) output += $" T= {trueModulo}";
+        else output += $" T={trueModulo}";        
 
-    string paddedNumbera = string.Format("{0," + (maxWidth + (a < 0 ? 1 : 0)) + "}", a);
-    Console.WriteLine(paddedNumbera);
-    string paddedNumberb = string.Format("{0," + (maxWidth + (b < 0 ? 1 : 0)) + "}", b);
-    Console.WriteLine(paddedNumberb);
+        Console.WriteLine(output);
 
-    string ok = "Y";
-    string no = "N";
-
-    //if(a>-1) Console.Write(" ");
-
-    string output = $".{paddedNumbera} MOD {paddedNumberb}, Remainder= {remainder}, TrueModulo= {trueModulo}. {(correct ? ok : no)}";
-
-    Console.WriteLine(output);
 }
 
 static int TrueModulo(int adivisor, int bdividend) => ((adivisor % bdividend) + bdividend) % bdividend;
