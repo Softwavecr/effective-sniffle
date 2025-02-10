@@ -1,36 +1,31 @@
-function caesarCipher(s, kk) {
-    console.log(kk); 
-    console.log(s);    
+function caesarCipher(text, key) {
+    console.log(key);     
+    console.log(text);    
     
-    var k = kk % 26;
-    console.log(k);
+    key = trueMod(key,26);
 
-    if (k < 0) 
-        k = k + 26;
+    let result = "";     
+    const charArray = Array.from(text);
 
-    console.log(k);
-    
-    let result = ""
+    charArray.forEach(char => {
+        let code = char.charCodeAt(0);
 
-    for (let i=0; i<s.length ;i++)
-        {
-            let char = s[i];
-            let code = s.charCodeAt(i);
-            
-            if(code >= 65 && code <= 90)
-            {
-                let shiftedCode = ((code - 65 + k) % 26) + 65;
-                result += String.fromCharCode(shiftedCode);
-            } else if (code >= 97 && code <= 122) { 
-                let shiftedCode = ((code - 97 + k) % 26) + 97;
-                result += String.fromCharCode(shiftedCode);
-            } else { 
-                result += char;
-            }                          
+        if (code >= 65 && code <= 90) {
+            let shiftedCode = ((code - 65 + key) % 26) + 65;
+            result += String.fromCharCode(shiftedCode);
+        } else if (code >= 97 && code <= 122) {
+            let shiftedCode = ((code - 97 + key) % 26) + 97;
+            result += String.fromCharCode(shiftedCode);
+        } else {
+            result += char;
         }
+    });
     return result;
 }
 
-//console.log(caesarCipher("middle-Outza", 2));
-console.log(caesarCipher("middle-Outvwxyza", -56));
+const trueMod = (dividend, divisor) => ((dividend % divisor) + divisor) % divisor;
 
+let r1 = caesarCipher("middle-Outza", -77)
+console.log(r1);
+let r2 = caesarCipher(r1, 77);
+console.log(r2);

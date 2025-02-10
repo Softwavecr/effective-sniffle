@@ -1,44 +1,38 @@
-﻿static string CaesarCipher(string s, int kk)    {
-        Console.WriteLine(kk);
-        Console.WriteLine(s);
+﻿using System;
+using System.Text;
 
-        var k = kk % 26;
-        Console.WriteLine(k);
+static string CaesarCipher(string text, int key)    
+{   
+    Console.WriteLine(key);
+    Console.WriteLine(text);
 
-        if(k<0)
-            k = k + 26;
+    key = TrueMod(key,26);
 
-        Console.WriteLine(k);
+    StringBuilder result = new StringBuilder();
 
-        char[] arr;
-        arr = s.ToCharArray(0, s.Length);
-        //Console.WriteLine("arr: "+new string(arr));
-        for(int i=0; i<arr.Count();i++)
+    foreach (char chor in text)
+    {
+        int code = (int)chor;
+
+        if(code >= 65 && code <= 90)
         {
-            int t = arr[i];
-            char c = (char)(t + k);
-
-            if(t+k<65 || t+k>122 || (t+k>90 && t+k<97)) Console.Write($"! i: {i}, char: {(char)t}, t: {t}, c: {c} - ");
-
-            if(t + k > 26 && ((t>64 && t<91) ||(t>96 && t<123)) )
-            {
-                Console.WriteLine("t+k > 26 ");
-                //Console.WriteLine(((char)t).ToString()+" "+t.ToString()+" -> "+c);
-                arr[i] = c;
-            }
-            
-            if(t + k < 27 &&  ((t>64 && t<91) ||(t>96 && t<123)) )
-            {
-                Console.WriteLine("t+k < 27 ");
-                ////Console.WriteLine(t.ToString()+" >> "+c);
-                //Console.WriteLine(((char)t).ToString()+" "+t.ToString()+" -> "+c);
-                arr[i] = c;                
-            }            
-                
-        }        
-        string result = new string(arr);
-        Console.WriteLine("");
-        return result;
+            int shiftedCode = ((code - 65 + key) % 26) + 65;
+            result.Append((char)shiftedCode);
+        }
+        else if(code >= 97 && code <= 122)
+        {
+            int shiftedCode = ((code - 97 + key) % 26) + 97;
+            result.Append((char)shiftedCode);
+        }
+        else
+            result.Append(chor);
     }
-//middle-Outza
-Console.WriteLine(CaesarCipher("middle-Outvwxyza", -56));
+    return result.ToString();
+}
+
+static int TrueMod(int dividend, int divisor) => ((dividend % divisor) + divisor) % divisor;
+
+var r1 = CaesarCipher("middle-Outza", -77);
+Console.WriteLine(r1);
+var r2 = CaesarCipher(r1, 77);
+Console.WriteLine(r2);
