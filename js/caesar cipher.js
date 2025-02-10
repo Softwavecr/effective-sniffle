@@ -1,11 +1,9 @@
-function caesarCipher(s, k) {
-    //var x = -10 % 3;    console.log("-10 % 3 = "+x);
 
+function caesarCipher(s, k) {
     console.log(k); 
     console.log(s);    
     
-    k = trueMod(k,26);
-    //k = k % 26;
+    k = trueMod(k,26);    //k = k % 26;
     console.log("1k= "+k);
 
     //if (k < 0) //js does reminder, not real modulo, therefore, it needs to be tweaked
@@ -39,5 +37,5 @@ function trueMod(adivisor,bdividend) { return ((adivisor % bdividend) + bdividen
 
 //function trueMod(a,b){  return ((a % b) + b) % b;}
 //console.log(caesarCipher("middle-Outza", 2));
-console.log(caesarCipher("middle-Outvwxyza", -56));
+console.log(caesarCipher("middle-Outza", 2));
 
