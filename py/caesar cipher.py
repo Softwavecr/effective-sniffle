@@ -2,7 +2,7 @@ def caesar_cipher(text, key):
     print(key)    
     print(text)
     
-    key = key % 26 #   print('k % 26 = ',k)
+    key = key % 26
     
     result = []
 
@@ -20,7 +20,7 @@ def caesar_cipher(text, key):
 
     return "".join(result)
 
-r1 = caesar_cipher('middle-Outza', 290)
+r1 = caesar_cipher('middle-Outza', -77)
 print(r1)
-r2 = caesar_cipher(r1, -290)
+r2 = caesar_cipher(r1, 77)
 print(r2)

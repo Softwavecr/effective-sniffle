@@ -2,7 +2,7 @@ function caesarCipher(text, key) {
     console.log(key);     
     console.log(text);    
     
-    key = trueMod(key,26);//    console.log('k % 26 = ',k);
+    key = trueMod(key,26);
 
     let result = "";     
     const charArray = Array.from(text);
@@ -25,7 +25,7 @@ function caesarCipher(text, key) {
 
 const trueMod = (dividend, divisor) => ((dividend % divisor) + divisor) % divisor;
 
-let r1 = caesarCipher("middle-Outza", 290)
+let r1 = caesarCipher("middle-Outza", -77)
 console.log(r1);
-let r2 = caesarCipher(r1, -290);
+let r2 = caesarCipher(r1, 77);
 console.log(r2);

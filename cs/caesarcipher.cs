@@ -6,7 +6,7 @@ static string CaesarCipher(string text, int key)
     Console.WriteLine(key);
     Console.WriteLine(text);
 
-    key = TrueMod(key,26);//    Console.WriteLine("k % 26 = "+ k);
+    key = TrueMod(key,26);
 
     StringBuilder result = new StringBuilder();
 
@@ -32,7 +32,7 @@ static string CaesarCipher(string text, int key)
 
 static int TrueMod(int dividend, int divisor) => ((dividend % divisor) + divisor) % divisor;
 
-var r1 = CaesarCipher("middle-Outza", 290);
+var r1 = CaesarCipher("middle-Outza", -77);
 Console.WriteLine(r1);
-var r2 = CaesarCipher(r1, -290);
+var r2 = CaesarCipher(r1, 77);
 Console.WriteLine(r2);
