@@ -5,11 +5,12 @@ static List<int> gradingStudents(List<int> grades)
         if(grade < 38 || grade % 5 == 0 || grade % 5 < 3)
             finalgrades.Add(grade);
         else if(grade % 5 > 2)
-            finalgrades.Add(grade + (5- (grade % 5)));               
-        return finalgrades;
+            finalgrades.Add(grade + (5- (grade % 5)));
+    
+    return finalgrades;
 }
 
 List<int> g = new List<int>(new int[] { 73, 67, 38, 33 } );
 var fg = gradingStudents(g);
 
-foreach(var n in fg) Console.WriteLine(n);
+Console.Write(string.Join(" ", fg));
