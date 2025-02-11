@@ -1,6 +1,6 @@
 static List<int> gradingStudents(List<int> grades)
 {
-    List<int> finalgrades = new List<int>();
+    var finalgrades = new List<int>();
     foreach (int grade in grades)
         if(grade < 38 || grade % 5 == 0 || grade % 5 < 3)
             finalgrades.Add(grade);
@@ -10,7 +10,5 @@ static List<int> gradingStudents(List<int> grades)
     return finalgrades;
 }
 
-List<int> g = new List<int>(new int[] { 73, 67, 38, 33 } );
-var fg = gradingStudents(g);
-
-Console.Write(string.Join(" ", fg));
+var fg = gradingStudents(new List<int>(){ 73, 67, 38, 33 } );
+Console.WriteLine(string.Join(" ", fg));
