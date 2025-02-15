@@ -1,0 +1,26 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run JS",
+            "type": "shell",
+            "command": "node ${file}", // Or whatever command runs your JS
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Run C#",
+            "type": "shell",
+            "command": "dotnet run", // Or appropriate C# command
+            "group": "build",
+            "problemMatcher": []
+        },        
+        {
+            "label": "Run Python",
+            "type": "shell",
+            "command": "python3 ${file}",
+            "group": "build",
+            "problemMatcher": []
+        }
+    ]
+}
